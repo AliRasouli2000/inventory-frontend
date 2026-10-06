@@ -1,59 +1,140 @@
-# InventoryFrontend
+# Inventory Management Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.1.
+An Angular frontend for a full-stack inventory management application.
 
-## Development server
+The application connects to a Spring Boot REST API and allows users to manage products, track inventory, and create orders through a web interface.
 
-To start a local development server, run:
+## Features
+
+- View all products and current inventory
+- Add new products
+- Edit existing products
+- Delete products
+- Create orders
+- Automatically refresh inventory after an order
+- Display success messages after successful orders
+- Display an error when an order exceeds available inventory
+- Communicate with a Spring Boot REST API using Angular HttpClient
+
+## Tech Stack
+
+- Angular 22
+- TypeScript
+- HTML
+- CSS
+- Angular Forms
+- Angular HttpClient
+- Angular Signals
+
+## Backend
+
+This frontend connects to a Spring Boot and PostgreSQL backend.
+
+Backend repository:
+
+https://github.com/AliRasouli2000/inventory-api
+
+The backend provides REST endpoints for product management and order processing.
+
+## Running the Application
+
+### Prerequisites
+
+Install:
+
+- Node.js
+- npm
+- Angular CLI
+
+Install project dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```text
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+The Spring Boot backend should also be running locally on:
 
-```bash
-ng generate --help
+```text
+http://localhost:8080
 ```
 
-## Building
+## Main Functionality
 
-To build the project run:
+### Product Management
+
+Users can:
+
+- Create products
+- View inventory
+- Edit product information
+- Delete products
+
+Product information includes:
+
+- Name
+- Description
+- Price
+- Quantity
+
+### Order Management
+
+Users can select a product and quantity to create an order.
+
+When an order succeeds, the frontend refreshes the product data so the updated inventory is immediately displayed.
+
+If the requested quantity exceeds available inventory, the application displays an error message instead of completing the order.
+
+## API Integration
+
+The frontend communicates with the backend using Angular's `HttpClient`.
+
+The product API is available at:
+
+```text
+http://localhost:8080/api/products
+```
+
+The order API is available at:
+
+```text
+http://localhost:8080/api/orders
+```
+
+## Build
+
+To create a production build:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Build files are generated in the `dist/` directory.
 
-## Running unit tests
+## What I Learned
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+This project provided hands-on experience with:
 
-```bash
-ng test
-```
+- Building a frontend with Angular and TypeScript
+- Connecting Angular to a REST API
+- Performing CRUD operations from a frontend
+- Using Angular forms and two-way data binding
+- Managing application state with Angular Signals
+- Handling HTTP success and error responses
+- Integrating an Angular frontend with a Spring Boot backend
+- Building a complete frontend-to-database workflow
 
-## Running end-to-end tests
+## Author
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Ali Rasouli**
